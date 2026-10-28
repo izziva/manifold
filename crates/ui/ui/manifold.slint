@@ -1287,6 +1287,14 @@ export component ManifoldWindow inherits Window {
                         spacing: 6px;
                         alignment: end;
 
+                        ToolbarButton {
+                            y: 6px;
+                            icon-kind: "eye";
+                            tooltip: root.show-hidden-files ? "Hide Hidden Files" : "Show Hidden Files";
+                            tooltip-align-right: true;
+                            clicked => { root.toggle-hidden-files(); }
+                        }
+
                         Rectangle {
                             width: 224px;
                             height: 30px;
