@@ -1272,40 +1272,13 @@ export component ManifoldWindow inherits Window {
                             }
                         }
 
-                        // Layout: [ Single Pane | Dual Pane ]
-                        Rectangle {
-                            height: 30px;
+                        // Toggle between single- and dual-pane layouts.
+                        ToolbarButton {
                             y: 6px;
-                            border-radius: 6px;
-                            background: #141417;
-                            border-width: 1px;
-                            border-color: #28282D;
-                            HorizontalLayout {
-                                padding: 2px;
-                                spacing: 2px;
-                                SegmentControlButton {
-                                    label: "Single Pane";
-                                    btn-width: 90px;
-                                    tooltip: "Single File Browser Pane";
-                                    active: !root.dual-pane-mode;
-                                    clicked => {
-                                        if root.dual-pane-mode {
-                                            root.toggle-dual-pane();
-                                        }
-                                    }
-                                }
-                                SegmentControlButton {
-                                    label: "Dual Pane";
-                                    btn-width: 82px;
-                                    tooltip: "Dual-Pane Split View";
-                                    active: root.dual-pane-mode;
-                                    clicked => {
-                                        if !root.dual-pane-mode {
-                                            root.toggle-dual-pane();
-                                        }
-                                    }
-                                }
-                            }
+                            icon-kind: "columns-2";
+                            label: root.dual-pane-mode ? "Single Pane" : "Dual Pane";
+                            tooltip: root.dual-pane-mode ? "Switch to Single Pane" : "Switch to Dual Pane";
+                            clicked => { root.toggle-dual-pane(); }
                         }
                     }
 
